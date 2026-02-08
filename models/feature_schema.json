@@ -1,0 +1,9 @@
+{
+  "features": [
+    "total_spent",
+    "txn_count",
+    "avg_txn",
+    "max_txn",
+    "spending_velocity"
+  ]
+}

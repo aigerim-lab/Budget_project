@@ -1,0 +1,9 @@
+# Ignore datasets
+data/*.csv
+data/**/*.csv
+
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/

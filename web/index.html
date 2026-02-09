@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Money Mentor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>My Money Mentor</h1>
+      <p>Budget Risk Alert + Budget Allocation (ML-backed)</p>
+    </header>
+
+    <section class="card">
+      <h2>Inputs</h2>
+
+      <div class="grid">
+        <label>
+          Monthly budget
+          <input id="budget" type="number" value="120000" min="0" step="1000"/>
+        </label>
+
+        <label>
+          Transactions per month
+          <input id="txnCount" type="number" value="60" min="1" step="1"/>
+        </label>
+
+        <label>
+          Max single transaction
+          <input id="maxTxn" type="number" value="20000" min="0" step="100"/>
+        </label>
+      </div>
+
+      <h3>Monthly spending by category</h3>
+      <div class="grid">
+        <label>Food <input class="cat" data-cat="Food" type="number" value="25000" min="0" step="100"/></label>
+        <label>Transport <input class="cat" data-cat="Transport" type="number" value="12000" min="0" step="100"/></label>
+        <label>Rent <input class="cat" data-cat="Rent" type="number" value="45000" min="0" step="100"/></label>
+        <label>Clothes <input class="cat" data-cat="Clothes" type="number" value="8000" min="0" step="100"/></label>
+        <label>Education <input class="cat" data-cat="Education" type="number" value="7000" min="0" step="100"/></label>
+        <label>Entertainment <input class="cat" data-cat="Entertainment" type="number" value="6000" min="0" step="100"/></label>
+        <label>Health <input class="cat" data-cat="Health" type="number" value="3000" min="0" step="100"/></label>
+        <label>Other <input class="cat" data-cat="Other" type="number" value="4000" min="0" step="100"/></label>
+      </div>
+
+      <div class="actions">
+        <button id="btnPredict">Predict</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Results</h2>
+      <div class="result-row">
+        <div class="badge" id="statusBadge">—</div>
+        <div class="meta">
+          <div>Risk probability: <span id="riskProb">—</span></div>
+          <div>Total spending: <span id="totalSpent">—</span></div>
+          <div>Budget usage: <span id="budgetUsage">—</span></div>
+        </div>
+      </div>
+
+      <h3>Recommended allocation</h3>
+      <table id="allocTable">
+        <thead><tr><th>Category</th><th>Recommended budget</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

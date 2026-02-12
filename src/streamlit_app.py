@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 import tensorflow as tf
+import matplotlib.pyplot as plt
 
 # Ensure project root is importable
 ROOT = Path(__file__).resolve().parents[1]
@@ -117,3 +118,9 @@ top_k = st.slider("Top categories to show", min_value=3, max_value=8, value=8)
 alloc = recommend_allocation(monthly_budget, shares, top_k=top_k)
 st.dataframe(alloc, use_container_width=True)
 st.bar_chart(alloc.set_index("category")["recommended_budget"])
+
+# ---------------- Pie chart for budget allocation ----------------
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.pie(alloc["recommended_budget"], labels=alloc["category"], autopct='%1.1f%%', startangle=90, colors=plt.cm.Paired.colors)
+ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
+st.pyplot(fig)
